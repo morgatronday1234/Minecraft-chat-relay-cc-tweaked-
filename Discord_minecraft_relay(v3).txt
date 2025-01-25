@@ -1,3 +1,5 @@
+--This project is under the CC-BY-4.0 license
+--https://github.com/morgatronday1234
 chat = peripheral.wrap("left")
 
 ingame_mute = {}
