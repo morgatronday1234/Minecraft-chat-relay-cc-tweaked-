@@ -1,5 +1,6 @@
 --This project is under the CC-BY-4.0 license
 --https://github.com/morgatronday1234
+
 chat = peripheral.wrap("left")
 
 ingame_mute = {}
@@ -9,7 +10,7 @@ token = "" -- TESTING VAR, DON'T USE. use tokens.txt
 
 --no token for you!
 file = fs.open("tokens.txt", "r")
-token = file.readAll()
+token = textutils.unserialise(file.readAll())[1]
 file.close()
 
 prev_message = nil
@@ -43,12 +44,12 @@ function chat_thread()
 
  if check_ingame == true and limited_call() == false
  then
-  http.post("https://discord.com/api/v9/channels/"..channel.."/messages", textutils.serialiseJSON({["content"] = user..":\n"..message}), {["Content-Type"] = "application/json", ["authorization"] = token})
+  http.post("https://discord.com/api/v9/channels/"..channel.."/messages", textutils.serialiseJSON({["content"] = user..":\n"..message}), {["Content-Type"] = "application/json", ["authorization"] = tostring(token)})
  end
 end
 function discord_thread()
   os.sleep(0.3)
- local message_data = http.get("https://discord.com/api/v9/channels/"..channel.."/messages?limit=3", {["Content-Type"] = "application/json", ["authorization"] = token})
+ local message_data = http.get("https://discord.com/api/v9/channels/"..channel.."/messages?limit=3", {["Content-Type"] = "application/json", ["authorization"] = tostring(token)})
 
  if (message_data == nil)
  then
