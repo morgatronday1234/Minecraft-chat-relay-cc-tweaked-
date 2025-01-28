@@ -10,7 +10,7 @@ token = "" -- TESTING VAR, DON'T USE. use tokens.txt
 
 --no token for you!
 file = fs.open("tokens.txt", "r")
-token = textutils.unserialise(file.readAll())[1]
+token = textutils.unserialise(file.readAll())["discord_bot"]
 file.close()
 
 prev_message = nil
