@@ -4,8 +4,8 @@
 chat = peripheral.wrap("left")
 
 ingame_mute = {}
-discord_mute = {"1164482320615620698"}
-channel = "1322110920050081856"
+discord_mute = {"1218610451655430266"}
+channel = "1341756594383229031"
 token = "" -- TESTING VAR, DON'T USE. use tokens.txt
 
 --no token for you!
